@@ -62,11 +62,22 @@ public class _01_StringMethods {
     	String[] str1 = s1.trim().split(" ");
     	String[] str2 = s2.trim().split(" ");
     	String[] str3 = s3.trim().split(" ");
-        return null;
+    	
+    	String[] lastName = str1;
+    	
+    	if(str2[1].compareTo(lastName[1]) < 1) {
+    		lastName = str2;
+    	}
+    	if(str3[1].compareTo(lastName[1]) < 1) {
+    		lastName = str3;
+    	}
+    	
+        return lastName[0] + " " + lastName[1];
     }
 
     // Return the sum of all numerical digits in the String
     public static int numeralSum(String s) {
+    	
         return 0;
     }
 
