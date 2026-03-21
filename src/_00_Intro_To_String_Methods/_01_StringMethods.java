@@ -77,13 +77,34 @@ public class _01_StringMethods {
 
     // Return the sum of all numerical digits in the String
     public static int numeralSum(String s) {
+    	char[] strChar = s.toCharArray();
+    	int sum = 0;
     	
-        return 0;
+    	for(int i = 0; i < strChar.length; i++) {
+    		if(Character.isDigit(strChar[i])) {
+    			sum += Character.getNumericValue(strChar[i]);
+    		}
+    	}
+
+    	return sum;
     }
 
     // Return the number of times String substring appears in String s
     public static int substringCount(String s, String substring) {
-        return 0;
+    	int subLength = substring.length();
+    	char[] strChar = s.toCharArray();
+    	int repeats = 0;
+    	
+    	for(int i = 0; i < strChar.length; i++) {
+    		if(strChar[i] == substring.charAt(0)) {
+    			if(s.substring(i, i+subLength).equals(substring)) {
+    				System.out.println(s.substring(i, i+subLength - 1));
+    				repeats++;
+    			}
+    		}
+    	}
+    	
+        return repeats;
     }
 
     // Call Utilities.encrypt at the bottom of this file to encrypt String s
