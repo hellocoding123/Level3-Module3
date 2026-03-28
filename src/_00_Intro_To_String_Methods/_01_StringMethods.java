@@ -109,33 +109,73 @@ public class _01_StringMethods {
 
     // Call Utilities.encrypt at the bottom of this file to encrypt String s
     public static String encrypt(String s, char key) {
-        return null;
+    	
+    	byte[] byteArr = s.getBytes();
+    	
+    	return Utilities.encrypt(byteArr, (byte)key);
+        
     }
 
     // Call Utilities.decrypt at the bottom of this file to decrypt the
     // cyphertext (encrypted text)
     public static String decrypt(String s, char key) {
-        return null;
+        
+    	return Utilities.decrypt(s, (byte)key);
     }
 
     // Return the number of words in String s that end with String substring
     // You can assume there are no punctuation marks between words
     public static int wordsEndsWithSubstring(String s, String substring) {
-        return 0;
+    	int count = 0;
+        String[] strArr = s.trim().split(" ");
+        
+        for(int i = 0; i < strArr.length; i++) {
+        	if(strArr[i].length()>=substring.length()) {
+	        	if(strArr[i].substring(strArr[i].length() - substring.length()).equals(substring)) {
+	        		count++;
+	        	}
+        	}
+        }
+        
+		return count;
     }
 
     // Given String s, return the number of characters between the first
     // occurrence of String substring and the final occurrence
     // You can assume that substring will appear at least twice
     public static int distance(String s, String substring) {
-        return 0;
+    	int firstIndex;
+    	int lastIndex;
+    	
+    	firstIndex = s.indexOf(substring) + substring.length();
+    	
+    	lastIndex = s.lastIndexOf(substring);
+    	
+        return lastIndex-firstIndex;
     }
 
     // Return true if String s is a palindrome
     // palindromes are words or phrases are read the same forward as backward.
     // HINT: ignore/remove all punctuation and spaces in the String
     public static boolean palindrome(String s) {
-        return true;
+    	
+    	char[] charArr = s.toCharArray();
+    	char[] charArr2 = s.toCharArray();
+    	String flipped = "";
+    	
+    	Character.isLetter
+    	//remove punctuation first
+    	
+    	for(int i = charArr.length-1; i >= 0; i--) {
+    		flipped += charArr[i];
+    	}
+    	System.out.println(flipped);
+    	if(flipped.replaceAll(" ", "")..equals(s.replaceAll(" ", ""))) {
+    		return true;
+    	} else {
+    	
+        return false;
+    	}
     }
 }
 
