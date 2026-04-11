@@ -159,22 +159,36 @@ public class _01_StringMethods {
     // HINT: ignore/remove all punctuation and spaces in the String
     public static boolean palindrome(String s) {
     	
-    	char[] charArr = s.toCharArray();
-    	char[] charArr2 = s.toCharArray();
+    	String strFixed = "";
+    	char[] charArr = s.trim().toCharArray();
     	String flipped = "";
     	
-    	Character.isLetter
+    	for(int i = 0; i < charArr.length; i++) {
+    		if(Character.isLetter(charArr[i])) {
+    			strFixed += charArr[i];
+    		}
+    	}
+    	
+    	char[] charArrFixed = strFixed.toCharArray();
+    	
     	//remove punctuation first
     	
-    	for(int i = charArr.length-1; i >= 0; i--) {
-    		flipped += charArr[i];
+    	for(int i2 = charArrFixed.length-1; i2 >= 0; i2--) {
+    		flipped += charArrFixed[i2];
     	}
+    	
+    	flipped = flipped.toLowerCase();
+    	strFixed = strFixed.toLowerCase();
     	System.out.println(flipped);
-    	if(flipped.replaceAll(" ", "")..equals(s.replaceAll(" ", ""))) {
+    	System.out.println(strFixed);
+    	if(flipped.equals(strFixed)) {
+    		
     		return true;
+    		
     	} else {
     	
-        return false;
+    		return false;
+    		
     	}
     }
 }

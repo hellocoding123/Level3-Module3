@@ -20,7 +20,22 @@ public class _01_TheWave {
      */
     
     public static ArrayList<String> wave(String str) {
-        
-        return null;
+    	
+    	ArrayList<String> wave = new ArrayList<String>();
+    	
+    	StringBuilder builder = new StringBuilder(str);
+    	
+    	for(int i = 0; i < str.length(); i++) {
+    		if(!(str.charAt(i) == ' ')) {
+    			wave.add(builder.replace(i, i+1, ""+Character.toUpperCase(str.charAt(i))).toString());
+    			//remove previous capitals
+    		}
+    	}
+    	
+    	for(int i = 0; i < wave.size(); i++) {
+    		System.out.println(wave.get(i));
+    	}
+    	
+        return wave;
     }
 }
