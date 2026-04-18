@@ -25,11 +25,23 @@ public class _01_TheWave {
     	
     	StringBuilder builder = new StringBuilder(str);
     	
+    	int gap = 0;
+    	
     	for(int i = 0; i < str.length(); i++) {
-    		if(!(str.charAt(i) == ' ')) {
-    			wave.add(builder.replace(i, i+1, ""+Character.toUpperCase(str.charAt(i))).toString());
-    			//remove previous capitals
+    		if(str.charAt(i) == ' ') {
+    			gap++;
+    			continue;
     		}
+    		else {
+    			gap = 0;
+    		}
+    		if(i == 0) {
+    			wave.add(builder.replace(i, i+1, ""+Character.toUpperCase(str.charAt(i))).toString());
+    		}
+    		else {
+    			wave.add(builder.replace(i-gap-1, i+1, ""+Character.toLowerCase(str.charAt(i-gap-1))+Character.toUpperCase(str.charAt(i))).toString().toString());
+    		}
+    		
     	}
     	
     	for(int i = 0; i < wave.size(); i++) {
