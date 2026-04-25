@@ -26,23 +26,29 @@ public class _01_TheWave {
     	StringBuilder builder = new StringBuilder(str);
     	
     	int gap = 0;
+    	String gapSpace = "";
     	
     	for(int i = 0; i < str.length(); i++) {
     		if(str.charAt(i) == ' ') {
-    			gap++;
+    			if(!(i == 0)) {
+    				gap++;
+    				gapSpace+=" ";
+    			}
     			continue;
     		}
     		else {
+    			if(i == 0) {
+        			wave.add(builder.replace(i, i+1, ""+gapSpace+Character.toUpperCase(str.charAt(i))).toString());
+        		}
+        		else {
+        			wave.add(builder.replace(i-gap-1, i+1, ""+Character.toLowerCase(str.charAt(i-gap-1))+gapSpace+Character.toUpperCase(str.charAt(i))).toString().toString());
+        		}
+        		
     			gap = 0;
+    			gapSpace = "";
     		}
-    		if(i == 0) {
-    			wave.add(builder.replace(i, i+1, ""+Character.toUpperCase(str.charAt(i))).toString());
-    		}
-    		else {
-    			wave.add(builder.replace(i-gap-1, i+1, ""+Character.toLowerCase(str.charAt(i-gap-1))+Character.toUpperCase(str.charAt(i))).toString().toString());
-    		}
-    		
     	}
+    	System.out.println(gap);
     	
     	for(int i = 0; i < wave.size(); i++) {
     		System.out.println(wave.get(i));
