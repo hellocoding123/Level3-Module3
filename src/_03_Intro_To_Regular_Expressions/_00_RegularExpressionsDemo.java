@@ -64,7 +64,7 @@ public class _00_RegularExpressionsDemo {
          */
         regEx = "[sy]\\b";
         output = testString.replaceAll(regEx, "_");
-        System.out.println(output);
+        System.out.println("ts: " + output);
         
         /*
          * Replace 3 characters if the first character is a vowel, the next
